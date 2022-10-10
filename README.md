@@ -6,10 +6,10 @@ This repository is an oiffical Pytorch implementation of the paper [**"Decomposi
 Minsoo Song and [Wonjun Kim*](https://sites.google.com/view/dcvl)  
 Journal of Visual Communication and Image Representation (JVCIR)
 
-![example1])(./examples/model_description.jpg)
+![example1](./examples/model_description.jpg)
 The proposed method is to transfer the rich knowledge of the scene depth, which is well encoded through the teacher network, to the student network in a structured way by decomposing it into the global context and local details.
 
-![example2])(./examples/replaceblock_description.jpg)
+![example2](./examples/replaceblock_description.jpg){:width="60%" height="60%"}
 We also propose a new guidance concept for knowledge distillation, so-called ReplaceBlock, which replaces blocks randomly selected in the decoded feature of the student network with those of the teacher network. Our ReplaceBlock gives a smoothing effect in learning the feature distribution of the teacher network by considering the spatial contiguity in the feature space.
 
 ## Enviornments
@@ -134,9 +134,9 @@ OMP_NUM_THREADS=1 python train.py --distributed --batch_size 80 --dataset NYU --
   ex) If you want to activate only the 3rd gpu out of 4 gpus, insert **'`--gpu_num 2`'**
 
 ### Qualitative results of the proposed distillation scheme shown in KITTI (top) and NYU Depth V2 (bottom) datasets.
-![example1](./examples/fig1.jpg)
+![example3](./examples/fig1.jpg)
 Upper left: input color image, upper right: ground truth, bottom left: the proposed method, bottom right: w/o distillation. Note that the ground truth samples are interpolated for better visualization. 
-![example1](./examples/fig2.jpg)
+![example4](./examples/fig2.jpg)
 Upper left: input color image, upper right: ground truth, bottom left: the proposed method, bottom right: w/o distillation. Note that the ground truth samples are interpolated for better visualization. 
 
 ## Reference
