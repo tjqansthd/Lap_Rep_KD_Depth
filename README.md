@@ -12,7 +12,8 @@ The proposed method is to transfer the rich knowledge of the scene depth, which 
 <p align="center">
 <img src="./examples/replaceblock_description.jpg" width="70%" height="70%">
 </p>
-We also propose a new guidance concept for knowledge distillation, so-called ReplaceBlock, which replaces blocks randomly selected in the decoded feature of the student network with those of the teacher network. Our ReplaceBlock gives a smoothing effect in learning the feature distribution of the teacher network by considering the spatial contiguity in the feature space.
+
+We also propose a new guidance concept for knowledge distillation, so-called **ReplaceBlock**, which replaces blocks randomly selected in the decoded feature of the student network with those of the teacher network. Our ReplaceBlock gives a smoothing effect in learning the feature distribution of the teacher network by considering the spatial contiguity in the feature space.
 
 ## Enviornments
 
@@ -25,7 +26,7 @@ We also propose a new guidance concept for knowledge distillation, so-called Rep
 some other packages: geffnet, path, blessings, progressbar, tqdm
 
 ## Pretrained models
-We proivde pre-trained MobileNetV2 and ResNet18 weights for KITTI and NYUV2 datasets. These models are trained on 4x Titan X. This is a reimplementation and the quantitative results are slightly different from our original paper
+We proivde pre-trained MobileNetV2 and ResNet18 weights for KITTI and NYUV2 datasets. These models are trained on 4x Titan X GPUs. This is a reimplementation and the quantitative results are slightly different from our original paper.
 * [MobileNetV2_encoder_pretrained_with_kitti](https://1drv.ms/u/s!An562j_-CwpPgjWOAYq9lJc-QBdt?e=GuLfOI)
 * [Decoder_pretrained_with_kitti](https://1drv.ms/u/s!An562j_-CwpPgjPyqk-_WOq6nx-X?e=HmH8cV)
 
