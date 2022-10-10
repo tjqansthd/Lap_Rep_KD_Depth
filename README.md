@@ -9,7 +9,9 @@ Journal of Visual Communication and Image Representation (JVCIR)
 ![example1](./examples/model_description.jpg)
 The proposed method is to transfer the rich knowledge of the scene depth, which is well encoded through the teacher network, to the student network in a structured way by decomposing it into the global context and local details.
 
-![example2](./examples/replaceblock_description.jpg){:width="60%" height="60%"}
+<p align="center">
+<img src="./examples/replaceblock_description.jpg" width="70%" height="70%">
+</p>
 We also propose a new guidance concept for knowledge distillation, so-called ReplaceBlock, which replaces blocks randomly selected in the decoded feature of the student network with those of the teacher network. Our ReplaceBlock gives a smoothing effect in learning the feature distribution of the teacher network by considering the spatial contiguity in the feature space.
 
 ## Enviornments
@@ -122,12 +124,18 @@ OMP_NUM_THREADS=1 python train.py --distributed --batch_size 80 --dataset NYU --
 ```
 
 Student training (with spatial knowledge distillation)
+- We provide pre-trained teacher network weights (ResNext101)
+*[ResNext_single_encoder_pretrained_KITTI](https://1drv.ms/u/s!An562j_-CwpPgjln_DxZqOyj-zW7?e=JGteSd)
+*[ResNext_single_decoder_pretrained_KITTI](https://1drv.ms/u/s!An562j_-CwpPgjdbT6hP9GQKH_XZ?e=KScde2)
+*[ResNext_single_encoder_pretrained_NYU](https://1drv.ms/u/s!An562j_-CwpPgjgwf2xQNc-Y553M?e=H5ZBMx)
+*[ResNext_single_decoder_pretrained_NYU](https://1drv.ms/u/s!An562j_-CwpPgjbgcp1pGwMylWSD?e=oj8nBn)
+
 ```bash
 # 4 gpus setting
 # KITTI
-OMP_NUM_THREADS=1 python train.py --distributed --batch_size 80 --dataset KITTI --data_path /your/workspace/KITTI --model_encoder_dir ./ResNext_single_best_encoder.pkl --model_decoder_dir ./ResNext_single_best_decoder.pkl --mode Student_training --epochs 50 --T_model ResNext101 --model MobileNetV2 --gpu_num 0,1,2,3
+OMP_NUM_THREADS=1 python train.py --distributed --batch_size 80 --dataset KITTI --data_path /your/workspace/KITTI --model_encoder_dir ./ResNext_single_encoder_pretrained_KITTI.pkl --model_decoder_dir ./ResNext_single_decoder_pretrained_KITTI.pkl --mode Student_training --epochs 50 --T_model ResNext101 --model MobileNetV2 --gpu_num 0,1,2,3
 # NYU
-OMP_NUM_THREADS=1 python train.py --distributed --batch_size 80 --dataset NYU --data_path /your/workspace/NYU_Depth_V2/sync --model_encoder_dir ./ResNext_single_best_encoder.pkl --model_decoder_dir ./ResNext_single_best_decoder.pkl --mode Student_training --epochs 50 --T_model ResNext101 --model MobileNetV2 --gpu_num 0,1,2,3
+OMP_NUM_THREADS=1 python train.py --distributed --batch_size 80 --dataset NYU --data_path /your/workspace/NYU_Depth_V2/sync --model_encoder_dir ./ResNext_single_encoder_pretrained_NYU.pkl --model_decoder_dir ./ResNext_single_decoder_pretrained_NYU.pkl --mode Student_training --epochs 50 --T_model ResNext101 --model MobileNetV2 --gpu_num 0,1,2,3
 ```
 **if you don't want distributed training, remove `--distributed` argument.
   '`--gpu_num`'** argument is an index list of your available GPUs you want to use (e.g., 0,1,2,3).  
