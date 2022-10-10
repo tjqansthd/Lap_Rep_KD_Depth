@@ -125,10 +125,10 @@ OMP_NUM_THREADS=1 python train.py --distributed --batch_size 80 --dataset NYU --
 
 Student training (with spatial knowledge distillation)
 - We provide pre-trained teacher network weights (ResNext101)
-*[ResNext_single_encoder_pretrained_KITTI](https://1drv.ms/u/s!An562j_-CwpPgjln_DxZqOyj-zW7?e=JGteSd)
-*[ResNext_single_decoder_pretrained_KITTI](https://1drv.ms/u/s!An562j_-CwpPgjdbT6hP9GQKH_XZ?e=KScde2)
-*[ResNext_single_encoder_pretrained_NYU](https://1drv.ms/u/s!An562j_-CwpPgjgwf2xQNc-Y553M?e=H5ZBMx)
-*[ResNext_single_decoder_pretrained_NYU](https://1drv.ms/u/s!An562j_-CwpPgjbgcp1pGwMylWSD?e=oj8nBn)
+* [ResNext_single_encoder_pretrained_KITTI](https://1drv.ms/u/s!An562j_-CwpPgjln_DxZqOyj-zW7?e=JGteSd)
+* [ResNext_single_decoder_pretrained_KITTI](https://1drv.ms/u/s!An562j_-CwpPgjdbT6hP9GQKH_XZ?e=KScde2)
+* [ResNext_single_encoder_pretrained_NYU](https://1drv.ms/u/s!An562j_-CwpPgjgwf2xQNc-Y553M?e=H5ZBMx)
+* [ResNext_single_decoder_pretrained_NYU](https://1drv.ms/u/s!An562j_-CwpPgjbgcp1pGwMylWSD?e=oj8nBn)
 
 ```bash
 # 4 gpus setting
@@ -137,8 +137,9 @@ OMP_NUM_THREADS=1 python train.py --distributed --batch_size 80 --dataset KITTI 
 # NYU
 OMP_NUM_THREADS=1 python train.py --distributed --batch_size 80 --dataset NYU --data_path /your/workspace/NYU_Depth_V2/sync --model_encoder_dir ./ResNext_single_encoder_pretrained_NYU.pkl --model_decoder_dir ./ResNext_single_decoder_pretrained_NYU.pkl --mode Student_training --epochs 50 --T_model ResNext101 --model MobileNetV2 --gpu_num 0,1,2,3
 ```
-**if you don't want distributed training, remove `--distributed` argument.
-  '`--gpu_num`'** argument is an index list of your available GPUs you want to use (e.g., 0,1,2,3).  
+if you don't want distributed training, remove `--distributed` argument.
+
+**'`--gpu_num`'** argument is an index list of your available GPUs you want to use (e.g., 0,1,2,3).  
   ex) If you want to activate only the 3rd gpu out of 4 gpus, insert **'`--gpu_num 2`'**
 
 ### Qualitative results of the proposed distillation scheme shown in KITTI (top) and NYU Depth V2 (bottom) datasets.
