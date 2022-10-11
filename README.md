@@ -113,7 +113,8 @@ Make sure you downloaded the pre-trained model and placed it in the './pretraine
 python eval.py --batch_size 1 --gpu_num 0 --student --evaluate --dataset KITTI --model MobileNetV2 --data_path      /your/workspace/KITTI/ --model_dir ./MobileNet_encoder_pretrained_KITTI.pkl --decoder_dir ./decoder_pretrained_KITTI.pkl
 ## NYU
 python eval.py --batch_size 1 --gpu_num 0 --student --evaluate  --dataset NYU --model ResNet18 --data_path /your/workspace/NYU_Depth_V2/official_splits/test --model_dir ./ResNet18_encoder_pretrained_NYU.pkl --decoder_dir ./decoder_pretrained_NYU.pkl
-    
+```
+
 ## Training
 Single training (without spatial knowledge distillation)
 ```bash
